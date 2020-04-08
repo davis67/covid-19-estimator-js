@@ -1,9 +1,16 @@
+import HelperEstimator from './helper';
 const covid19ImpactEstimator = (data) => {
   const impact = {};
   const severeImpact = {};
 
-  impact.currentlyInfected = data.reportedCases * 10;
-  severeImpact.currentlyInfected = data.reportedCases * 50;
+  impact.infectionsByRequestedTime = new HelperEstimator(
+    data,
+    10
+  ).infectionByRequestedTime();
+  severeImpact.currentlyInfected = new HelperEstimator(
+    data,
+    50
+  ).infectionByRequestedTime();
 
   return { data, impact, severeImpact };
 };
