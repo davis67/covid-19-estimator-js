@@ -1,7 +1,39 @@
-import HelperEstimator from './helper';
+class HelperEstimator {
+  constructor({ periodType, timeToElapse, reportedCases }, impactFactor) {
+    this.periodType = periodType;
+    this.timeToElapse = timeToElapse;
+    this.reportedCases = reportedCases;
+    this.impactFactor = impactFactor;
+  }
+
+  computeDuration = () => {
+    switch (this.periodType) {
+      case 'weeks':
+        return this.timeToElapse * 7;
+      case 'months':
+        return this.timeToElapse * 30;
+      default:
+        return this.timeToElapse;
+    }
+  };
+
+  powerFactor = () => {
+    return Math.round(this.computeDuration() / 3);
+  };
+
+  currentlyInfected = () => {
+    return this.reportedCases * this.impactFactor;
+  };
+
+  infectionByRequestedTime = () => {
+    let factor = this.powerFactor();
+    return this.currentlyInfected() * 2 ** factor;
+  };
+}
+
 const covid19ImpactEstimator = (data) => {
-  let impact = {};
-  let severeImpact = {};
+  const impact = {};
+  const severeImpact = {};
 
   impact.infectionsByRequestedTime = new HelperEstimator(
     data,
