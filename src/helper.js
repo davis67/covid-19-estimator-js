@@ -1,7 +1,8 @@
-export default class Helper {
-  constructor({ periodType, timeToElapse }, impactFactor) {
+export default class helper {
+  constructor({ periodType, timeToElapse, reportedCases }, impactFactor) {
     this.periodType = periodType;
     this.timeToElapse = timeToElapse;
+    this.reportedCases = reportedCases;
     this.impactFactor = impactFactor;
   }
 
@@ -26,6 +27,6 @@ export default class Helper {
 
   infectionByRequestedTime = () => {
     let factor = this.powerFactor();
-    return this.currentlyInfected * 2 ** factor;
+    return this.currentlyInfected() * 2 ** factor;
   };
 }

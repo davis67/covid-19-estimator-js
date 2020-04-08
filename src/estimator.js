@@ -1,7 +1,7 @@
 import HelperEstimator from './helper';
 const covid19ImpactEstimator = (data) => {
-  const impact = {};
-  const severeImpact = {};
+  let impact = {};
+  let severeImpact = {};
 
   impact.infectionsByRequestedTime = new HelperEstimator(
     data,
@@ -11,7 +11,6 @@ const covid19ImpactEstimator = (data) => {
     data,
     50
   ).infectionByRequestedTime();
-
   return { data, impact, severeImpact };
 };
 
