@@ -45,7 +45,7 @@ const covid19ImpactEstimator = (data) => {
     10
   ).infectionByRequestedTime();
   impact.currentlyInfected = new HelperEstimator(data, 10).currentlyInfected();
-  severeImpact.currentlyInfected = new HelperEstimator(
+  severeImpact.infectionsByRequestedTime = new HelperEstimator(
     data,
     50
   ).infectionByRequestedTime();
