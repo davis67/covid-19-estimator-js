@@ -7,14 +7,16 @@ class HelperEstimator {
   }
 
   computeDuration = () => {
+    let period;
     switch (this.periodType) {
       case 'weeks':
-        return this.timeToElapse * 7;
+        period = this.timeToElapse * 7;
       case 'months':
-        return this.timeToElapse * 30;
+        period = this.timeToElapse * 30;
       default:
-        return this.timeToElapse;
+        period = this.timeToElapse;
     }
+    return period;
   };
 
   powerFactor = () => {
