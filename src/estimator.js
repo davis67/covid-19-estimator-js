@@ -11,10 +11,13 @@ class HelperEstimator {
     switch (this.periodType) {
       case 'weeks':
         period = this.timeToElapse * 7;
+        break;
       case 'months':
         period = this.timeToElapse * 30;
+        break;
       default:
         period = this.timeToElapse;
+        break;
     }
     return period;
   }
@@ -28,7 +31,7 @@ class HelperEstimator {
   }
 
   infectionByRequestedTime() {
-    let factor = this.powerFactor();
+    const factor = this.powerFactor();
     return this.currentlyInfected() * 2 ** factor;
   }
 }
