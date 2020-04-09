@@ -6,7 +6,7 @@ class HelperEstimator {
     this.impactFactor = impactFactor;
   }
 
-  computeDuration = () => {
+  computeDuration() {
     let period;
     switch (this.periodType) {
       case 'weeks':
@@ -17,20 +17,20 @@ class HelperEstimator {
         period = this.timeToElapse;
     }
     return period;
-  };
+  }
 
-  powerFactor = () => {
+  powerFactor() {
     return Math.round(this.computeDuration() / 3);
-  };
+  }
 
-  currentlyInfected = () => {
+  currentlyInfected() {
     return this.reportedCases * this.impactFactor;
-  };
+  }
 
-  infectionByRequestedTime = () => {
+  infectionByRequestedTime() {
     let factor = this.powerFactor();
     return this.currentlyInfected() * 2 ** factor;
-  };
+  }
 }
 
 const covid19ImpactEstimator = (data) => {
