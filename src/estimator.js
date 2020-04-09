@@ -38,24 +38,52 @@ class HelperEstimator {
   }
 }
 
-const covid19ImpactEstimator = (data) => {
-  const impact = {};
-  const severeImpact = {};
-
-  impact.infectionsByRequestedTime = new HelperEstimator(
+//impact cases
+const impactCases = (data) => {
+  const infectionsByRequestedTime = new HelperEstimator(
     data,
     10
   ).infectionByRequestedTime();
-  impact.currentlyInfected = new HelperEstimator(data, 10).currentlyInfected();
-  severeImpact.infectionsByRequestedTime = new HelperEstimator(
+  const currentlyInfected = new HelperEstimator(data, 10).currentlyInfected();
+  const severeCasesByRequestedTime = infectionsByRequestedTime * 0.15;
+  const severeCasesByRequestedTime = Math.floor(
+    infectionsByRequestedTime * 0.15
+  );
+  const availableHospitalBeds = Math.floor(data.totalHospitalBeds * 0.35);
+  const hospitalBedsByRequestedTime =
+    availableHospitalBeds - severeCasesByRequestedTime;
+  return {
+    infectionsByRequestedTime,
+    currentlyInfected,
+    severeCasesByRequestedTime,
+    hospitalBedsByRequestedTime
+  };
+};
+
+//severe impact cases
+const severeImpactCases = (data) => {
+  const infectionsByRequestedTime = new HelperEstimator(
     data,
-    50
+    10
   ).infectionByRequestedTime();
-  severeImpact.currentlyInfected = new HelperEstimator(
-    data,
-    50
-  ).currentlyInfected();
-  return { data, impact, severeImpact };
+  const currentlyInfected = new HelperEstimator(data, 10).currentlyInfected();
+  const severeCasesByRequestedTime = Math.floor(
+    infectionsByRequestedTime * 0.15
+  );
+  const availableHospitalBeds = Math.floor(data.totalHospitalBeds * 0.35);
+  const hospitalBedsByRequestedTime =
+    availableHospitalBeds - severeCasesByRequestedTime;
+  return {
+    infectionsByRequestedTime,
+    currentlyInfected,
+    severeCasesByRequestedTime,
+    hospitalBedsByRequestedTime
+  };
+};
+
+//covid19 impact estimator
+const covid19ImpactEstimator = (data) => {
+  return { data, impact: impactCases, severeImpact: severeImpactCases };
 };
 
 export default covid19ImpactEstimator;
