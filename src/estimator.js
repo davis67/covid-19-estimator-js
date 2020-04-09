@@ -39,8 +39,7 @@ class HelperEstimator {
 }
 
 // available bed
-const availableHospitalBeds = (data, severeCases) =>
-  Math.floor(data.totalHospitalBeds * 0.35) - severeCases;
+const availableHospitalBeds = (data, severeCases) => (Math.floor(data.totalHospitalBeds * 0.35) - severeCases);
 
 // impact cases
 const impactCases = (data) => {
