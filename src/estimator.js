@@ -1,5 +1,8 @@
 class HelperEstimator {
-  constructor({ periodType, timeToElapse, reportedCases }, impactFactor) {
+  constructor(
+    { periodType = 'days', timeToElapse, reportedCases },
+    impactFactor
+  ) {
     this.periodType = periodType;
     this.timeToElapse = timeToElapse;
     this.reportedCases = reportedCases;
@@ -9,10 +12,10 @@ class HelperEstimator {
   computeDuration() {
     let period;
     switch (this.periodType) {
-      case weeks:
+      case 'weeks':
         period = this.timeToElapse * 7;
         break;
-      case months:
+      case 'months':
         period = this.timeToElapse * 30;
         break;
       default:
