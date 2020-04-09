@@ -1,6 +1,9 @@
 class HelperEstimator {
-  constructor(
-    { periodType = 'days', timeToElapse, reportedCases },
+  constructor({
+      periodType = 'days',
+      timeToElapse,
+      reportedCases
+    },
     impactFactor
   ) {
     this.periodType = periodType;
@@ -38,19 +41,14 @@ class HelperEstimator {
   }
 }
 
-//impact cases
+// impact cases
 const impactCases = (data) => {
-  const infectionsByRequestedTime = new HelperEstimator(
-    data,
-    10
-  ).infectionByRequestedTime();
+  const infectionsByRequestedTime = new HelperEstimator(data, 10).infectionByRequestedTime();
   const currentlyInfected = new HelperEstimator(data, 10).currentlyInfected();
-  const severeCasesByRequestedTime = Math.floor(
-    infectionsByRequestedTime * 0.15
-  );
+  const severeCasesByRequestedTime = Math.floor(infectionsByRequestedTime * 0.15);
   const availableHospitalBeds = Math.floor(data.totalHospitalBeds * 0.35);
-  const hospitalBedsByRequestedTime =
-    availableHospitalBeds - severeCasesByRequestedTime;
+  const hospitalBedsByRequestedTime = availableHospitalBeds - severeCasesByRequestedTime;
+
   return {
     infectionsByRequestedTime,
     currentlyInfected,
@@ -59,19 +57,13 @@ const impactCases = (data) => {
   };
 };
 
-//severe impact cases
+// severe impact cases
 const severeImpactCases = (data) => {
-  const infectionsByRequestedTime = new HelperEstimator(
-    data,
-    10
-  ).infectionByRequestedTime();
+  const infectionsByRequestedTime = new HelperEstimator(data, 10).infectionByRequestedTime();
   const currentlyInfected = new HelperEstimator(data, 10).currentlyInfected();
-  const severeCasesByRequestedTime = Math.floor(
-    infectionsByRequestedTime * 0.15
-  );
+  const severeCasesByRequestedTime = Math.floor(infectionsByRequestedTime * 0.15);
   const availableHospitalBeds = Math.floor(data.totalHospitalBeds * 0.35);
-  const hospitalBedsByRequestedTime =
-    availableHospitalBeds - severeCasesByRequestedTime;
+  const hospitalBedsByRequestedTime = availableHospitalBeds - severeCasesByRequestedTime;
   return {
     infectionsByRequestedTime,
     currentlyInfected,
@@ -80,9 +72,13 @@ const severeImpactCases = (data) => {
   };
 };
 
-//covid19 impact estimator
+// covid19 impact estimator
 const covid19ImpactEstimator = (data) => {
-  return { data, impact: impactCases, severeImpact: severeImpactCases };
+  return {
+    data,
+    impact: impactCases,
+    severeImpact: severeImpactCases
+  };
 };
 
 export default covid19ImpactEstimator;
