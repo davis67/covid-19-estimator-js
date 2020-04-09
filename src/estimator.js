@@ -1,6 +1,9 @@
 class HelperEstimator {
-  constructor(
-    { periodType = 'days', timeToElapse, reportedCases },
+  constructor({
+      periodType = 'days',
+      timeToElapse,
+      reportedCases
+    },
     impactFactor
   ) {
     this.periodType = periodType;
