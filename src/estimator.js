@@ -39,8 +39,8 @@ class HelperEstimator {
 }
 
 // available bed
-const availableHospitalBeds = ({ totalHospitalBeds }, severeCases) => {
-  return Math.floor(totalHospitalBeds * 0.35) - severeCases;
+const availableHospitalBeds = (data, severeCases) => {
+  return Math.floor(data.totalHospitalBeds * 0.35) - severeCases;
 };
 
 // impact cases
@@ -91,11 +91,9 @@ const severeImpactCases = (data) => {
 };
 
 // covid19 impact estimator
-const covid19ImpactEstimator = (data) => {
-  return {
-    data,
-    impact: impactCases(data),
-    severeImpact: severeImpactCases(data)
-  };
-};
+const covid19ImpactEstimator = (data) => ({
+  data,
+  impact: impactCases(data),
+  severeImpact: severeImpactCases(data)
+});
 export default covid19ImpactEstimator;
