@@ -66,6 +66,12 @@ const impactCases = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(
     availBeds - severeCasesByRequestedTime
   );
+  const casesForICUByRequestedTime = Math.trunc(
+    infectionsByRequestedTime * 0.05
+  );
+  const casesForVentilatorsByRequestedTime = Math.trunc(
+    infectionsByRequestedTime * 0.02
+  );
   const period = new HelperEstimator(data, 10).computeDuration();
 
   const dollarsInFlight = dollarsInFlightComputation(
@@ -79,6 +85,8 @@ const impactCases = (data) => {
     currentlyInfected,
     severeCasesByRequestedTime,
     hospitalBedsByRequestedTime,
+    casesForICUByRequestedTime,
+    casesForVentilatorsByRequestedTime,
     dollarsInFlight
   };
 };
@@ -97,7 +105,12 @@ const severeImpactCases = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(
     availBeds - severeCasesByRequestedTime
   );
-
+  const casesForICUByRequestedTime = Math.trunc(
+    infectionsByRequestedTime * 0.05
+  );
+  const casesForVentilatorsByRequestedTime = Math.trunc(
+    infectionsByRequestedTime * 0.02
+  );
   const period = new HelperEstimator(data, 50).computeDuration();
 
   const dollarsInFlight = dollarsInFlightComputation(
@@ -112,6 +125,8 @@ const severeImpactCases = (data) => {
     currentlyInfected,
     severeCasesByRequestedTime,
     hospitalBedsByRequestedTime,
+    casesForICUByRequestedTime,
+    casesForVentilatorsByRequestedTime,
     dollarsInFlight
   };
 };
