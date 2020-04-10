@@ -1,8 +1,5 @@
 class HelperEstimator {
-  constructor(
-    { periodType, timeToElapse, reportedCases },
-    impactFactor
-  ) {
+  constructor({ periodType, timeToElapse, reportedCases }, impactFactor) {
     this.periodType = periodType;
     this.timeToElapse = timeToElapse;
     this.reportedCases = reportedCases;
@@ -34,9 +31,25 @@ class HelperEstimator {
 
   infectionByRequestedTime() {
     const factor = this.powerFactor();
-    return this.currentlyInfected() * (2 ** factor);
+    return this.currentlyInfected() * 2 ** factor;
   }
 }
+
+// dollars in flight
+
+const dollarsInFlightComputation = (
+  noOfInfections,
+  avgIncomePopulationInPercentage,
+  avgDailyIncomeInDollars,
+  period
+) => {
+  const finalResult = noOfInfections
+    * avgIncomePopulationInPercentage
+    * avgDailyIncomeInDollars
+    * period;
+
+  return Number(finalResult.toFixed(2));
+};
 
 // impact cases
 const impactCases = (data) => {
@@ -50,13 +63,23 @@ const impactCases = (data) => {
   );
 
   const availBeds = data.totalHospitalBeds * 0.35;
-  const hospitalBedsByRequestedTime = Math.trunc(availBeds - severeCasesByRequestedTime);
+  const hospitalBedsByRequestedTime = Math.trunc(
+    availBeds - severeCasesByRequestedTime
+  );
+  const period = new HelperEstimator(data, 10).computeDuration();
 
+  const dollarsInFlight = dollarsInFlightComputation(
+    infectionsByRequestedTime,
+    data.region.avgDailyIncomePopulation,
+    data.region.avgDailyIncomeInUSD,
+    period
+  );
   return {
     infectionsByRequestedTime,
     currentlyInfected,
     severeCasesByRequestedTime,
-    hospitalBedsByRequestedTime
+    hospitalBedsByRequestedTime,
+    dollarsInFlight
   };
 };
 
@@ -71,13 +94,25 @@ const severeImpactCases = (data) => {
     infectionsByRequestedTime * 0.15
   );
   const availBeds = data.totalHospitalBeds * 0.35;
-  const hospitalBedsByRequestedTime = Math.trunc(availBeds - severeCasesByRequestedTime);
+  const hospitalBedsByRequestedTime = Math.trunc(
+    availBeds - severeCasesByRequestedTime
+  );
+
+  const period = new HelperEstimator(data, 50).computeDuration();
+
+  const dollarsInFlight = dollarsInFlightComputation(
+    infectionsByRequestedTime,
+    data.region.avgDailyIncomePopulation,
+    data.region.avgDailyIncomeInUSD,
+    period
+  );
 
   return {
     infectionsByRequestedTime,
     currentlyInfected,
     severeCasesByRequestedTime,
-    hospitalBedsByRequestedTime
+    hospitalBedsByRequestedTime,
+    dollarsInFlight
   };
 };
 
