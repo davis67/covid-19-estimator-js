@@ -39,8 +39,8 @@ class HelperEstimator {
 }
 
 // available bed
-const availableHospitalBeds = ({totalHospitalBeds}, severeCases) => (
-  Math.floor(totalHospitalBeds * 0.35) - severeCases
+const availableHospitalBeds = (data, severeCases) => (
+  Math.floor(data.totalHospitalBeds * 0.35) - severeCases
 );
 
 // impact cases
@@ -96,6 +96,4 @@ const covid19ImpactEstimator = (data) => ({
   impact: impactCases(data),
   severeImpact: severeImpactCases(data)
 });
-
-console.log(covid19ImpactEstimator(data))
 export default covid19ImpactEstimator;
