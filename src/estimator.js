@@ -71,9 +71,9 @@ const impactCases = (data) => {
 const severeImpactCases = (data) => {
   const infectionsByRequestedTime = new HelperEstimator(
     data,
-    10
+    50
   ).infectionByRequestedTime();
-  const currentlyInfected = new HelperEstimator(data, 10).currentlyInfected();
+  const currentlyInfected = new HelperEstimator(data, 50).currentlyInfected();
   const severeCasesByRequestedTime = Math.floor(
     infectionsByRequestedTime * 0.15
   );
