@@ -25,7 +25,7 @@ class HelperEstimator {
   }
 
   powerFactor() {
-    return Math.trunc(this.computeDuration() / 3);
+    return Math.floor(this.computeDuration() / 3);
   }
 
   currentlyInfected() {
@@ -39,8 +39,8 @@ class HelperEstimator {
 }
 
 // available bed
-const availableHospitalBeds = (data, severeCases) => (
-  Math.trunc(data.totalHospitalBeds * 0.35) - severeCases
+const availableHospitalBeds = ({totalHospitalBeds}, severeCases) => (
+  Math.floor(totalHospitalBeds * 0.35) - severeCases
 );
 
 // impact cases
@@ -50,7 +50,7 @@ const impactCases = (data) => {
     10
   ).infectionByRequestedTime();
   const currentlyInfected = new HelperEstimator(data, 10).currentlyInfected();
-  const severeCasesByRequestedTime = Math.trunc(
+  const severeCasesByRequestedTime = Math.floor(
     infectionsByRequestedTime * 0.15
   );
 
@@ -74,7 +74,7 @@ const severeImpactCases = (data) => {
     50
   ).infectionByRequestedTime();
   const currentlyInfected = new HelperEstimator(data, 50).currentlyInfected();
-  const severeCasesByRequestedTime = Math.trunc(
+  const severeCasesByRequestedTime = Math.floor(
     infectionsByRequestedTime * 0.15
   );
   const hospitalBedsByRequestedTime = availableHospitalBeds(
@@ -96,4 +96,6 @@ const covid19ImpactEstimator = (data) => ({
   impact: impactCases(data),
   severeImpact: severeImpactCases(data)
 });
+
+console.log(covid19ImpactEstimator(data))
 export default covid19ImpactEstimator;
