@@ -66,7 +66,9 @@ const impactCases = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(
     availBeds - severeCasesByRequestedTime
   );
-  const casesForICUByRequestedTime = infectionsByRequestedTime * 0.05;
+  const casesForICUByRequestedTime = Math.floor(
+    infectionsByRequestedTime * 0.05
+  );
 
   const casesForVentilatorsByRequestedTime = Math.floor(
     infectionsByRequestedTime * 0.02
@@ -105,7 +107,9 @@ const severeImpactCases = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(
     availBeds - severeCasesByRequestedTime
   );
-  const casesForICUByRequestedTime = infectionsByRequestedTime * 0.05;
+  const casesForICUByRequestedTime = Math.floor(
+    infectionsByRequestedTime * 0.05
+  );
 
   const casesForVentilatorsByRequestedTime = Math.floor(
     infectionsByRequestedTime * 0.02
