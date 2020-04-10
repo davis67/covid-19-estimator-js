@@ -66,11 +66,11 @@ const impactCases = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(
     availBeds - severeCasesByRequestedTime
   );
-  const casesForICUByRequestedTime = Math.floor(
+  const casesForICUByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.05
   );
 
-  const casesForVentilatorsByRequestedTime = Math.floor(
+  const casesForVentilatorsByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.02
   );
 
@@ -107,11 +107,11 @@ const severeImpactCases = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(
     availBeds - severeCasesByRequestedTime
   );
-  const casesForICUByRequestedTime = Math.floor(
+  const casesForICUByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.05
   );
 
-  const casesForVentilatorsByRequestedTime = Math.floor(
+  const casesForVentilatorsByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.02
   );
 
@@ -139,11 +139,11 @@ const severeImpactCases = (data) => {
 //   region: {
 //     name: 'Africa',
 //     avgAge: 19.7,
-//     avgDailyIncomeInUSD: 4,
-//     avgDailyIncomePopulation: 0.73
+//     avgDailyIncomeInUSD: 0.12,
+//     avgDailyIncomePopulation: 0.756
 //   },
 //   periodType: 'days',
-//   timeToElapse: 38,
+//   timeToElapse: 12,
 //   reportedCases: 2747,
 //   population: 92931687,
 //   totalHospitalBeds: 678874
