@@ -105,12 +105,14 @@ const severeImpactCases = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(
     availBeds - severeCasesByRequestedTime
   );
-  const casesForICUByRequestedTime = Math.trunc(
+  const casesForICUByRequestedTime = Math.floor(
     infectionsByRequestedTime * 0.05
   );
-  const casesForVentilatorsByRequestedTime = Math.trunc(
+
+  const casesForVentilatorsByRequestedTime = Math.floor(
     infectionsByRequestedTime * 0.02
   );
+
   const period = new HelperEstimator(data, 50).computeDuration();
 
   const dollarsInFlight = dollarsInFlightComputation(
