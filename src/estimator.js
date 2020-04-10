@@ -43,11 +43,10 @@ const dollarsInFlightComputation = (
   avgDailyIncomeInDollars,
   period
 ) => {
-  const finalResult =
-    noOfInfections *
-    avgIncomePopulationInPercentage *
-    avgDailyIncomeInDollars *
-    period;
+  const finalResult = noOfInfections
+    * avgIncomePopulationInPercentage
+    * avgDailyIncomeInDollars
+    * period;
 
   return Number(finalResult.toFixed(2));
 };
