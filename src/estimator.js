@@ -43,12 +43,13 @@ const dollarsInFlightComputation = (
   avgDailyIncomeInDollars,
   period
 ) => {
-  const finalResult = noOfInfections
-    * avgIncomePopulationInPercentage
-    * avgDailyIncomeInDollars
-    * period;
+  const finalResult = (noOfInfections
+      * avgIncomePopulationInPercentage
+      * avgDailyIncomeInDollars
+      * period)
+    / 30;
 
-  return Number(finalResult.toFixed(2));
+  return Math.trunc(finalResult);
 };
 
 // impact cases
@@ -135,15 +136,15 @@ const severeImpactCases = (data) => {
   };
 };
 
-// const data = {
+// data = {
 //   region: {
 //     name: 'Africa',
 //     avgAge: 19.7,
-//     avgDailyIncomeInUSD: 0.12,
-//     avgDailyIncomePopulation: 0.756
+//     avgDailyIncomeInUSD: 4,
+//     avgDailyIncomePopulation: 0.73
 //   },
 //   periodType: 'days',
-//   timeToElapse: 12,
+//   timeToElapse: 38,
 //   reportedCases: 2747,
 //   population: 92931687,
 //   totalHospitalBeds: 678874
