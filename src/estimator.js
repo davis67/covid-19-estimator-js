@@ -25,7 +25,7 @@ class HelperEstimator {
   }
 
   powerFactor() {
-    return Math.floor(this.computeDuration() / 3);
+    return Math.trunc(this.computeDuration() / 3);
   }
 
   currentlyInfected() {
@@ -34,13 +34,13 @@ class HelperEstimator {
 
   infectionByRequestedTime() {
     const factor = this.powerFactor();
-    return this.currentlyInfected() * 2 ** factor;
+    return this.currentlyInfected() * (2 ** factor);
   }
 }
 
 // available bed
 const availableHospitalBeds = (data, severeCases) => (
-  Math.floor(data.totalHospitalBeds * 0.35) - severeCases
+  Math.trunc(data.totalHospitalBeds * 0.35) - severeCases
 );
 
 // impact cases
@@ -50,7 +50,7 @@ const impactCases = (data) => {
     10
   ).infectionByRequestedTime();
   const currentlyInfected = new HelperEstimator(data, 10).currentlyInfected();
-  const severeCasesByRequestedTime = Math.floor(
+  const severeCasesByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.15
   );
 
@@ -74,7 +74,7 @@ const severeImpactCases = (data) => {
     50
   ).infectionByRequestedTime();
   const currentlyInfected = new HelperEstimator(data, 50).currentlyInfected();
-  const severeCasesByRequestedTime = Math.floor(
+  const severeCasesByRequestedTime = Math.trunc(
     infectionsByRequestedTime * 0.15
   );
   const hospitalBedsByRequestedTime = availableHospitalBeds(
