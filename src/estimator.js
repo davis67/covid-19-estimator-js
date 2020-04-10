@@ -38,11 +38,6 @@ class HelperEstimator {
   }
 }
 
-// available bed
-const availableHospitalBeds = (data, severeCases) => (
-  Math.floor(data.totalHospitalBeds * 0.35) - severeCases
-);
-
 // impact cases
 const impactCases = (data) => {
   const infectionsByRequestedTime = new HelperEstimator(
@@ -54,10 +49,8 @@ const impactCases = (data) => {
     infectionsByRequestedTime * 0.15
   );
 
-  const hospitalBedsByRequestedTime = availableHospitalBeds(
-    data,
-    severeCasesByRequestedTime
-  );
+  const availBeds = Math.floor(data.totalHospitalBeds * 0.35);
+  const hospitalBedsByRequestedTime = availBeds - severeCasesByRequestedTime;
 
   return {
     infectionsByRequestedTime,
@@ -77,10 +70,8 @@ const severeImpactCases = (data) => {
   const severeCasesByRequestedTime = Math.floor(
     infectionsByRequestedTime * 0.15
   );
-  const hospitalBedsByRequestedTime = availableHospitalBeds(
-    data,
-    severeCasesByRequestedTime
-  );
+  const availBeds = Math.floor(data.totalHospitalBeds * 0.35);
+  const hospitalBedsByRequestedTime = availBeds - severeCasesByRequestedTime;
 
   return {
     infectionsByRequestedTime,
