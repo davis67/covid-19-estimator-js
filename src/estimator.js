@@ -40,7 +40,7 @@ class HelperEstimator {
 
 // available bed
 const availableHospitalBeds = (data, severeCases) => (
-  Math.trunc((data.totalHospitalBeds * 0.35) - severeCases)
+  Math.trunc(data.totalHospitalBeds * 0.35) - severeCases
 );
 
 // impact cases
