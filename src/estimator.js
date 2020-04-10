@@ -25,7 +25,7 @@ class HelperEstimator {
   }
 
   powerFactor() {
-    return Math.round(this.computeDuration() / 3);
+    return Math.floor(this.computeDuration() / 3);
   }
 
   currentlyInfected() {
