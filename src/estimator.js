@@ -43,10 +43,11 @@ const dollarsInFlightComputation = (
   avgDailyIncomeInDollars,
   period
 ) => {
-  const finalResult = noOfInfections
-    * avgIncomePopulationInPercentage
-    * avgDailyIncomeInDollars
-    * period;
+  const finalResult =
+    noOfInfections *
+    avgIncomePopulationInPercentage *
+    avgDailyIncomeInDollars *
+    period;
 
   return Number(finalResult.toFixed(2));
 };
@@ -66,12 +67,10 @@ const impactCases = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(
     availBeds - severeCasesByRequestedTime
   );
-  const casesForICUByRequestedTime = Math.trunc(
-    infectionsByRequestedTime * 0.05
-  );
-  const casesForVentilatorsByRequestedTime = Math.trunc(
-    infectionsByRequestedTime * 0.02
-  );
+  const casesForICUByRequestedTime = infectionsByRequestedTime * 0.05;
+
+  const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * 0.02;
+
   const period = new HelperEstimator(data, 10).computeDuration();
 
   const dollarsInFlight = dollarsInFlightComputation(
@@ -105,13 +104,9 @@ const severeImpactCases = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(
     availBeds - severeCasesByRequestedTime
   );
-  const casesForICUByRequestedTime = Math.floor(
-    infectionsByRequestedTime * 0.05
-  );
+  const casesForICUByRequestedTime = infectionsByRequestedTime * 0.05;
 
-  const casesForVentilatorsByRequestedTime = Math.floor(
-    infectionsByRequestedTime * 0.02
-  );
+  const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * 0.02;
 
   const period = new HelperEstimator(data, 50).computeDuration();
 
