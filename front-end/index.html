@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./css/estimator.css" type="text/css" rel="stylesheet" />
+   
+    <title>Covid-19 Estimator</title>
+  </head>
+  <body>
+    <div class="main__wrapper">
+      <div class="nav__header" style="background-color: #667eea;">
+        <div
+          class="max_w_screen"
+        >
+          <div
+            class="header__container"
+          >
+            <div
+              class="header__wrapper"
+            >
+              <span
+                class="header__heading"
+              >
+                <svg
+                  class="header__svg"
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+                  />
+                </svg>
+              </span>
+              <p
+                class="header__content"
+              >
+                <span
+                  class="header_inner_content"
+                  
+                >
+                  Coronavirus disease spreads primarily through contact with an
+                  infected person when they cough or sneeze.<br />
+                  It also spreads when a person touches a surface or object that
+                  has the virus on it, then touches their eyes, nose, or mouth.
+                </span>
+              </p>
+            </div>
+            <div
+            >
+              <div
+                class="header_btn_container"
+              >
+                <a
+                  href="#"
+                  class="header_btn hover:text-indigo-500 focus:outline-none focus:shadow-outline transition ease-in-out duration-150"
+             
+                >
+                  Read More on WHO page
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form__container">
+        <div class="max_width_full">
+          <div
+            class="container_full"
+          >
+          <div>
+            <h2 class="container_header">Estimate COVID-19 infections in your Region </h2>
+          </div>
+           <form
+                  class="form"
+                >
+            <!-- <div
+              class="container_layout"
+            >
+              <div class="container_layout_inner">
+                <h3
+                  class="container_layout_sub_inner"
+                >
+                  Region Info
+                </h3>
+                <p
+                  class="container_layout_sub_inner_p"
+                  
+                >
+                  This information is about the region. Average Age can be any number and average income is in dollars.
+                </p>
+              </div>
+              <div class="form_layout" >
+                  <div class="mb-4">
+                    <label
+                      class="form_label mb-2"
+                      for="username"
+                      
+                    >
+                      Name of the Continent
+                    </label>
+                    <input
+                      class="form_input width_75 focus:outline-none focus:shadow-outline"
+                      placeholder="eg Africa" data-region-name
+                      type="text"
+                    />
+                  </div>
+                  <div class="d-flex width_full">
+                  <div class="mb-4 p-2 width_30 ">
+                    <label
+                      class="form_label"
+                      for="username"
+                    >
+                      Average Age
+                    </label>
+                    <input
+                      class="form_input focus:outline-none focus:shadow-outline"
+                      type="text" data-region-avgAge
+                      placeholder="eg 19.7"
+                    />
+                  </div>
+                  <div class="mb-4 p-2 width_30">
+                    <label
+                      class="form_label"
+                      for="username"
+                     
+                    >
+                      Avg Daily Income
+                    </label>
+                    <input
+                      class="form_input  focus:outline-none focus:shadow-outline"
+                      type="text" data-region-avgDailyIncomeInUSD
+                      placeholder="eg 5"
+                    />
+                  </div>
+                    <div class="mb-4 p-2 width_30">
+                    <label
+                      class="form_label"
+                      for="username"
+                     
+                    >
+                      %age of Ppn
+                    </label>
+                    <input
+                      class="form_input  focus:outline-none focus:shadow-outline"
+                      type="text" data-region-avgDailyIncomePopulation
+                      placeholder="eg 5"
+                    />
+                  </div>
+                  </div>
+              </div>
+            </div> -->
+            <div
+              class="container_layout"
+            >
+              <div class="container_layout_inner " >
+                <h3
+                  class="container_layout_sub_inner"
+                 
+                >
+                 Data about the Infection Spread.
+                </h3>
+                <p
+                  class="container_layout_sub_inner_p"
+                  
+                >
+                  Number of reported cases are supposed to expressed in numbers and others can be decimals.
+                </p>
+              </div>
+              <div class="form_layout" >
+                  <div class="mb-4">
+                    <label
+                      class="form_label mb-2"
+                      for="username"
+                    >
+                      No of Reported Cases
+                    </label>
+                    <input
+                      class="form_input width_75 focus:outline-none focus:shadow-outline"
+                       data-reported-cases
+                      type="text"
+                      placeholder="eg 5"
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label
+                      class="form_label mb-2"
+                      for="username"
+                    >
+                      Population
+                    </label>
+                    <input
+                      class="form_input width_75 focus:outline-none focus:shadow-outline"
+                      type="text" data-population 
+                      placeholder="eg 19"
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label
+                      class="form_label mb-2"
+                      for="username"
+                    >
+                     No of total hospital beds
+                    </label>
+                    <input
+                      class="form_input width_75 focus:outline-none focus:shadow-outline"
+                      type="text" data-total-hospital-beds
+                      placeholder="eg 12.3"
+                    />
+                  </div>
+              </div>
+            </div>
+            <div
+              class="container_layout" style="margin-top:3px;border-top: 1px solid  #f7fafc;"
+             
+            >
+              <div class="container_layout_inner">
+                <h3
+                  class="container_layout_sub_inner"
+                >
+                  Settings
+                </h3>
+                <p
+                  class="container_layout_sub_inner_p"
+                 
+                >
+                  The time elapsed is expressed in terms of days by default.
+                </p>
+              </div>
+              <div class="form_layout" >
+                <div style="display: flex;">
+                  <div class="mb-4">
+                    <label
+                      class="form_label"
+                      for="username"
+                     
+                    >
+                      Time Elapsed
+                    </label>
+                    <input
+                      class="form_input width_75 focus:outline-none focus:shadow-outline"
+                      type="text" data-time-to-elapse
+                      placeholder="eg 12"
+                    />
+                  </div>
+
+                  <div class="width_50">
+                    <label
+                      class="form_label"
+                      for="username"
+                     
+                    >
+                      Period Type
+                    </label>
+                    <div class="relative">
+                      <select
+                        class="select_input  focus:outline-none focus:bg-white focus:border-gray-500"
+                        data-period-type
+                      >
+                        <option>Days</option>
+                        <option>Weeks</option>
+                        <option>Months</option>
+                      </select>
+                      <div
+                        class="select_input_dropdown"
+  
+                      >
+                        <svg
+                          class="select_input_dropdown_svg"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <span
+                    class="form_btn_layout"
+                  >
+                    <button
+                      type="submit" data-go-estimate
+                      class="form_btn hover:bg-indigo-400 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-600 active:bg-indigo-600 transition duration-150 ease-in-out"
+                    >
+                      <svg
+                        class="form_btn_svg"
+                       
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                      Estimate Impact
+                    </button>
+                  </span>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
