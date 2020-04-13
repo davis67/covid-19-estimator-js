@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="This is an eligibility assessment for the 2020 #BuildforSDG program"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="./css/estimator.css" type="text/css" rel="stylesheet" />
    
     <title>Covid-19 Estimator</title>
@@ -175,7 +179,7 @@
                   <div class="mb-4">
                     <label
                       class="form_label mb-2"
-                      for="username"
+                      for="reported_cases"
                     >
                       No of Reported Cases
                     </label>
@@ -183,32 +187,34 @@
                       class="form_input width_75 focus:outline-none focus:shadow-outline"
                        data-reported-cases
                       type="text"
+                      id="reported_cases"
                       placeholder="eg 5"
                     />
                   </div>
                   <div class="mb-4">
                     <label
                       class="form_label mb-2"
-                      for="username"
+                      for="population"
                     >
                       Population
                     </label>
                     <input
                       class="form_input width_75 focus:outline-none focus:shadow-outline"
-                      type="text" data-population 
+                      type="text" data-population id="population"
                       placeholder="eg 19"
                     />
                   </div>
                   <div class="mb-4">
                     <label
                       class="form_label mb-2"
-                      for="username"
+                      for="total_hospital_beds"
                     >
                      No of total hospital beds
                     </label>
                     <input
                       class="form_input width_75 focus:outline-none focus:shadow-outline"
                       type="text" data-total-hospital-beds
+                      id="total_hospital_beds"
                       placeholder="eg 12.3"
                     />
                   </div>
@@ -236,7 +242,7 @@
                   <div class="mb-4">
                     <label
                       class="form_label"
-                      for="username"
+                      for="time_elapsed"
                      
                     >
                       Time Elapsed
@@ -244,6 +250,7 @@
                     <input
                       class="form_input width_75 focus:outline-none focus:shadow-outline"
                       type="text" data-time-to-elapse
+                      id="time_elapsed"
                       placeholder="eg 12"
                     />
                   </div>
@@ -251,7 +258,7 @@
                   <div class="width_50">
                     <label
                       class="form_label"
-                      for="username"
+                      for="period_time"
                      
                     >
                       Period Type
@@ -259,7 +266,7 @@
                     <div class="relative">
                       <select
                         class="select_input  focus:outline-none focus:bg-white focus:border-gray-500"
-                        data-period-type
+                        data-period-type id="period_time"
                       >
                         <option>Days</option>
                         <option>Weeks</option>

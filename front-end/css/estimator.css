@@ -101,7 +101,7 @@ body {
   margin: 0.25rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #a0aec0;
+  color: #7f9cf5;
 }
 .form__container {
   width: 75%;
@@ -148,22 +148,15 @@ body {
   padding-bottom: 0.5rem;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
-  /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
-                    0 1px 2px 0 rgba(0, 0, 0, 0.06); */
 }
 .select_input {
   display: block;
   width: 100%;
-  appearance: none;
   color: #4a5568;
   appearance: none;
   margin-left: 12px;
-  padding-top: 0.5rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
   line-height: 1.25;
-
-  padding-bottom: 0.5rem;
-  padding-right: 0.75rem;
-  padding-left: 0.75rem;
 }
 .select_input_dropdown {
   pointer-events: none;
