@@ -6,6 +6,7 @@ class HelperEstimator {
     this.impactFactor = impactFactor;
   }
 
+  // compute the duration in days
   computeDuration() {
     let period;
     switch (this.periodType) {
@@ -21,14 +22,17 @@ class HelperEstimator {
     return period;
   }
 
+  // factor
   powerFactor() {
     return Math.floor(this.computeDuration() / 3);
   }
 
+  // compute currently infected
   currentlyInfected() {
     return this.reportedCases * this.impactFactor;
   }
 
+  // compute infections by the requested time
   infectionByRequestedTime() {
     const factor = this.powerFactor();
     return this.currentlyInfected() * 2 ** factor;
@@ -135,27 +139,11 @@ const severeImpactCases = (data) => {
   };
 };
 
-// data = {
-//   region: {
-//     name: 'Africa',
-//     avgAge: 19.7,
-//     avgDailyIncomeInUSD: 4,
-//     avgDailyIncomePopulation: 0.73
-//   },
-//   periodType: 'days',
-//   timeToElapse: 38,
-//   reportedCases: 2747,
-//   population: 92931687,
-//   totalHospitalBeds: 678874
-// };
-
 // covid19 impact estimator
 const covid19ImpactEstimator = (data) => ({
   data,
   impact: impactCases(data),
   severeImpact: severeImpactCases(data)
 });
-
-// console.log(covid19ImpactEstimator(data));
 
 export default covid19ImpactEstimator;
