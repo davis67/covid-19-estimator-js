@@ -43,9 +43,8 @@ body {
 }
 .header__content {
   font-weight: 500;
-  overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  text-align: left;
   margin-left: 0.75rem;
   color: #fff;
 }
@@ -244,4 +243,59 @@ body {
 }
 .p-2 {
   padding: 4px;
+}
+
+@media only screen and (max-width: 768px) {
+  .header__container {
+    flex-direction: column;
+    align-items: unset;
+  }
+  /* For mobile phones: */
+  .header__content {
+    overflow: unset;
+    white-space: unset;
+    text-align: justify;
+    margin: 0.75rem;
+  }
+  .header_inner_content {
+    font-size: 0.875rem;
+  }
+
+  .header_btn_container {
+    width: fit-content;
+    margin-left: 15px;
+  }
+
+  .header__wrapper {
+    width: unset;
+  }
+
+  .header__heading {
+    display: none;
+  }
+
+  .header_btn {
+    font-size: 12px;
+    line-height: 1rem;
+    padding: 0.5rem;
+  }
+  .form__container {
+    width: 90%;
+  }
+  .container_header {
+    text-align: left;
+    font-size: 1rem;
+  }
+  .form {
+    padding: 0;
+  }
+  .container_layout {
+    grid-template-columns: 1fr;
+  }
+  .container_layout_sub_inner {
+    font-size: 1rem;
+  }
+  .form_label {
+    font-size: 1rem;
+  }
 }
